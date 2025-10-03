@@ -31,12 +31,11 @@ jobs:
           
       - name: Build and analyze
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         run: |
-          dotnet sonarscanner begin /k:"supertutork" /o:"SuperTutorK" /d:sonar.login=$SONAR_TOKEN /d:sonar.host.url="https://sonarcloud.io" /d:sonar.qualitygate.wait=true
+          dotnet sonarscanner begin /k:"SuperTutorK_SuperTutor.Admin" /o:"supertutork" /d:sonar.token="${{ secrets.SONAR_TOKEN }}" /d:sonar.host.url="https://sonarcloud.io" /d:sonar.qualitygate.wait=true
           dotnet build
-          dotnet sonarscanner end /d:sonar.login=$SONAR_TOKEN
+          dotnet sonarscanner end /d:sonar.token="${{ secrets.SONAR_TOKEN }}"
         continue-on-error: true
 
       - name: Check Quality Gate
