@@ -33,6 +33,7 @@ jobs:
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         run: |
+          cd SuperTutorAdmin
           dotnet sonarscanner begin /k:"SuperTutorK_SuperTutor.Admin" /o:"supertutork" /d:sonar.token="${{ secrets.SONAR_TOKEN }}" /d:sonar.host.url="https://sonarcloud.io" /d:sonar.qualitygate.wait=true
           dotnet build
           dotnet sonarscanner end /d:sonar.token="${{ secrets.SONAR_TOKEN }}"
