@@ -1,0 +1,1 @@
+[![Quality gate](https://sonarcloud.io/api/project_badges/quality_gate?project=SuperTutorK_SuperTutor.Admin)](https://sonarcloud.io/summary/new_code?id=SuperTutorK_SuperTutor.Admin)
