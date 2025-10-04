@@ -31,4 +31,4 @@ if (app.Environment.IsDevelopment())
 
 app.MapIdentityApi<User>();
 
-app.Run();
+await app.RunAsync();
