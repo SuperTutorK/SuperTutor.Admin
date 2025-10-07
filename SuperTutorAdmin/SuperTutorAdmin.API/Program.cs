@@ -9,24 +9,27 @@ builder.AddServiceDefaults();
 builder.Services.AddAuthorization();
 
 builder.Services
-    .AddDbContext(builder.Configuration.GetConnectionString("DataBase") ?? throw new ArgumentException("DataBase connection string is null"))
-    .AddIdentity().AddIdentityApiEndpoints<User>();
+	.AddDbContext(builder.Configuration.GetConnectionString("DataBase") ?? throw new ArgumentException("DataBase connection string is null"))
+	.AddIdentity().AddIdentityApiEndpoints<User>();
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
 
+if (builder.GetType() is null)
+	Console.WriteLine("Hello");
+
 app.MapDefaultEndpoints();
 
 app
-    .UseAuthentication()
-    .UseAuthorization();
+	.UseAuthentication()
+	.UseAuthorization();
 
 if (app.Environment.IsDevelopment())
 {
-    app.UseSwagger();
-    app.UseSwaggerUI();
+	app.UseSwagger();
+	app.UseSwaggerUI();
 }
 
 app.MapIdentityApi<User>();
