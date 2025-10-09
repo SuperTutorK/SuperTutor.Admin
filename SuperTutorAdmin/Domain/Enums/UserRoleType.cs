@@ -2,9 +2,9 @@
 
 public enum UserRoleType
 {
-    Teacher,
-    ContentManagerTeacher,
-    Admin,
-    Student,
-    StudentParent
+	Teacher,
+	ContentManagerTeacher,
+	Admin,
+	Student,
+	StudentParent
 }

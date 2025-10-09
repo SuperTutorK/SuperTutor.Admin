@@ -1,10 +1,10 @@
 var builder = DistributedApplication.CreateBuilder(args);
 
 var postgres = builder.AddPostgres("SuperTutor")
-    .WithDataVolume()
-    .WithPgAdmin();
+	.WithDataVolume()
+	.WithPgAdmin();
 
 builder.AddProject<Projects.SuperTutorAdmin_API>("supertutoradmin-api")
-    .WithReference(postgres);
+	.WithReference(postgres);
 
 builder.Build().Run();
