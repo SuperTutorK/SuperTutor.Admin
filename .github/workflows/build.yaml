@@ -6,7 +6,7 @@ on:
 
 defaults:
   run:
-    working-directory: SuperTutorAdmin
+    working_dir: SuperTutorAdmin
 
 jobs:
   sonarqube_check:
