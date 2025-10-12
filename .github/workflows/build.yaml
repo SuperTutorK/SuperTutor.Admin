@@ -4,6 +4,10 @@ on:
   pull_request:
     branches: [ main, develop ]
 
+defaults:
+  run:
+    working-directory: SuperTutorAdmin
+
 jobs:
   sonarqube_check:
     name: SonarQube
@@ -31,7 +35,6 @@ jobs:
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         run: |
-          cd SuperTutorAdmin
           dotnet sonarscanner begin /k:"SuperTutorK_SuperTutor.Admin" /o:"supertutork" /d:sonar.token="${{ secrets.SONAR_TOKEN }}" /d:sonar.host.url="https://sonarcloud.io" /d:sonar.qualitygate.wait=true
           dotnet build
           dotnet sonarscanner end /d:sonar.token="${{ secrets.SONAR_TOKEN }}"
@@ -49,9 +52,6 @@ jobs:
         uses: actions/setup-dotnet@v3
         with:
           dotnet-version: '9.0.x'
-      
-      - name: Set working directory
-        run: cd SuperTutorAdmin
       
       - name: Install dependencies
         run: dotnet restore
