@@ -17,9 +17,6 @@ builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
 
-if (builder.GetType() is null)
-	Console.WriteLine("Hello");
-
 app.MapDefaultEndpoints();
 
 app
